@@ -28,7 +28,6 @@ int i, j;
 char resp;
 char resp_correta2[] = {'b','b'};//resposta correta das dificuldades nivel medio
 int dificuldade;
-
 //função para perguntas faceis
 char perguntas_facil(){
       for (i = 0; i < 2; i++) {
@@ -52,7 +51,29 @@ char perguntas_facil(){
             }
     }
 }
-//variavel pra receber a função
+//função para perguntas medio
+char perguntas_medio(){
+     for (i = 0; i < 2; i++) {
+        printf("\nPergunta %d: %s\n", i + 1, enunciado2[i]);//imprimi o enunciado das perguntas
+            for (j = 0; j < 4; j++) {
+                printf(" %c) %s\n", 'a' + j, alternativas2[i][j]);//imprimi as alternativas das perguntas
+            }
+            resp = getchar();
+            #ifdef _WIN32
+                system("ffslush(stdin");//para windows
+            Windows
+            #else
+                __fpurge(stdin);//para linux e macos
+             #endif
+            //verifica a resposta do jogador
+            if(resp == resp_correta1[i]){
+                printf("Certa resposta!");
+                }
+                else{
+                    printf("Resposta errada!");
+            }
+    }
+}
 
 void main(){
     // Configura o locale para permitir acentuação
@@ -61,6 +82,13 @@ void main(){
     printf("\n-----Bem-vindo ao jogo-----\n");
     printf("\n-----Pressione enter para continuar -----\n");
     getchar();
+    #ifdef _WIN32
+            system("ffslush(stdin");//para windows
+        Windows
+        #else
+            __fpurge(stdin);//para linux e macos
+    #endif
+    //verifica a resposta do jogador
     //limpar a tela
     #ifdef _WIN32
         system("cls"); //comando para windows
@@ -72,11 +100,15 @@ void main(){
     printf("Escolha a dificuldade:");
     printf("\n1- Fácil\n");
     printf("\n2- Médio\n");
-    dificuldade = getchar();
+    scanf("%d",&dificuldade);
     __fpurge(stdin);
+
     switch(dificuldade){
         case 1: perguntas_facil();
         break;
-    }
+        case 2: perguntas_medio();
+        break;
+        default: printf("Por favor escolha um nível de dificuldade!");
+        }
 }
 
