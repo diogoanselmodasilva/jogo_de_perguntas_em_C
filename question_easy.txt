@@ -8,9 +8,9 @@ O que é o átomo?;A menor unidade de uma molecula;Uma particula subatômica;Um 
 Qual é a primeira lei de newton?A energia não pode ser criada nem destruida;Um objeto em repouso permanece em repouso;Para cada ação, há uma reação igual e oposta;A força é igual á massa multiplicada pela aceleração;b
 Qual é a fórmula da energia cinética?;E = mc²;E = 1/2mv²;E = mgh;b
 Qual o principal gás responsável pelo efeito estufa;Oxigênio;Dioxido de carbono;Nitrogênio;Hélio;b
-O que é um foton?;Uma particula de eletricidade;uma particula de materia;um tipo de onda sonora;b
+O que é um foton?;Uma particula de eletricidade;Luz;uma particula de materia;um tipo de onda sonora;b
 Qual a temperatura de ebulição da agua em condições normais?50°c;100°c;150°c;200°c;b
 Qual o elemento representado pelo simbolo 'Na'?;Níquel;Sódio;Nitrônio;Selenônio;b
 O que é a gravidade?Uma força que atrai objetos para o centro da Terra;Uma força que repele objetos;Um tipo de energia;Um fenomeno fisico que ocorre apenas na lua;a
 Qual é a unidade de medida da temperatura no sistema internacional?;Kelvin;Celsius;Fahrenheit;Joule
-Qual é o planeta que possui anéis?Terra;Vênus;Saturno;Marte;c
+Qual é o planeta que possui anéis?;Terra;Vênus;Saturno;Marte;c

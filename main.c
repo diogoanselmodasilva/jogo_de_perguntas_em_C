@@ -1,33 +1,36 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <locale.h>//para usar setlocale
+#include <locale.h>
+#include <time.h>
 
 #define MAX_PERGUNTAS 16
 #define MAX_ALTERNATIVAS 4
-#define MAX_TAM 256
+#define MAX_TAM 512
 
 char enunciado[MAX_PERGUNTAS][MAX_TAM];
 char alternativas[MAX_PERGUNTAS][MAX_ALTERNATIVAS][MAX_TAM];
 char resp_correta[MAX_PERGUNTAS];
 int total_perguntas = 0;
 
-//função para limpar o buffer para windows e linux
-void limpar_buffer(){
+// Função para limpar o buffer
+void limpar_buffer() {
     #ifdef _WIN32
         fflush(stdin);
     #else
         __fpurge(stdin);
     #endif
-};
-//Para limpar a tela para windows e linux
-void limpar_tela(){
+}
+
+// Função para limpar a tela
+void limpar_tela() {
     #ifdef _WIN32
         system("cls");
     #else
         system("clear");
     #endif
-};
+}
+
 // Função para embaralhar perguntas
 void embaralhar_perguntas() {
     srand(time(NULL)); // Inicializa a semente aleatória
@@ -40,7 +43,7 @@ void embaralhar_perguntas() {
         strcpy(enunciado[j], temp_enunciado);
 
         // Embaralha as alternativas
-        for (int k = 0; k < MAX_ALTERNATIVAS; k++) {
+        for (int k = 0; k < MAX_PERGUNTAS; k++) {
             char temp_alternativa[MAX_TAM];
             strcpy(temp_alternativa, alternativas[i][k]);
             strcpy(alternativas[i][k], alternativas[j][k]);
@@ -110,31 +113,29 @@ void perguntas_dificil() {
 
 void jogar(int dificuldade) {
     char resp;
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < total_perguntas; i++) {
         printf("\nPergunta %d: %s\n", i + 1, enunciado[i]);
         for (int j = 0; j < MAX_ALTERNATIVAS; j++) {
             printf(" %c) %s\n", 'a' + j, alternativas[i][j]);
         }
-        printf("Digite sua resposta\n");
+        printf("Digite sua resposta: ");
         resp = getchar();
+        limpar_buffer(); // Limpa o buffer após a entrada
 
         if (resp == resp_correta[i]) {
             printf("Certa resposta!\n");
         } else {
             printf("Resposta errada! A resposta correta era: %c\n", resp_correta[i]);
         }
-        getchar();
-        limpar_buffer();
     }
 }
-
 
 int main() {
     setlocale(LC_ALL, "Portuguese");
     int dificuldade;
 
     do {
-        printf("\n------Bem vindo ao jogo!!!-----\n");
+        printf("\n------Bem-vindo ao jogo!!!-----\n");
         printf("\n------Digite ENTER para continuar------\n");
         getchar();
         limpar_buffer();
@@ -144,8 +145,7 @@ int main() {
         printf("2 - Médio\n");
         printf("3 - Difícil\n");
         scanf("%d", &dificuldade);
-        getchar();
-        limpar_buffer();
+        limpar_buffer(); // Limpar o buffer após ler a dificuldade
 
         switch (dificuldade) {
             case 1:
