@@ -28,6 +28,31 @@ void limpar_tela(){
         system("clear");
     #endif
 };
+// Função para embaralhar perguntas
+void embaralhar_perguntas() {
+    srand(time(NULL)); // Inicializa a semente aleatória
+    for (int i = total_perguntas - 1; i > 0; i--) {
+        int j = rand() % (i + 1);
+        // Embaralha o enunciado
+        char temp_enunciado[MAX_TAM];
+        strcpy(temp_enunciado, enunciado[i]);
+        strcpy(enunciado[i], enunciado[j]);
+        strcpy(enunciado[j], temp_enunciado);
+
+        // Embaralha as alternativas
+        for (int k = 0; k < MAX_ALTERNATIVAS; k++) {
+            char temp_alternativa[MAX_TAM];
+            strcpy(temp_alternativa, alternativas[i][k]);
+            strcpy(alternativas[i][k], alternativas[j][k]);
+            strcpy(alternativas[j][k], temp_alternativa);
+        }
+
+        // Embaralha as respostas corretas
+        char temp_resp = resp_correta[i];
+        resp_correta[i] = resp_correta[j];
+        resp_correta[j] = temp_resp;
+    }
+}
 
 void ler_perguntas(const char *nome_arquivo) {
     FILE *file = fopen(nome_arquivo, "r");
@@ -68,16 +93,19 @@ void ler_perguntas(const char *nome_arquivo) {
 void perguntas_facil() {
     total_perguntas = 0; // Resetar contador
     ler_perguntas("question_easy.txt");
+    embaralhar_perguntas();
 }
 
 void perguntas_medio() {
     total_perguntas = 0; // Resetar contador
     ler_perguntas("question_medium.txt");
+    embaralhar_perguntas();
 }
 
 void perguntas_dificil() {
     total_perguntas = 0; // Resetar contador
     ler_perguntas("question_hard.txt");
+    embaralhar_perguntas();
 }
 
 void jogar(int dificuldade) {

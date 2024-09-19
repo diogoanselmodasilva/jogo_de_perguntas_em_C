@@ -1,0 +1,8 @@
+Qual é a formula da velocidade média?;v=d/t;v=m/a;v=f/m;v=t/d;a
+Qual é unidade de medida de força no sistema internacional?Joule;Newton;Pascal;Watt;b
+O que é um ácido?Uma substãncia que doa eletrons;Uma substância que aceita prótons;Uma substância que doa prótons;Uma substância que é sempre sólida;c
+Qual é o principal componente do Sol?;Oxigênio;Hidrogênio;Hélio;Carbono;b
+Qual das opções abaixo é uma forma de energia?;Massa;Calor;Volume;Força;b
+Qual é a lei que relaciona a pressão e o volume de um gás a temperatura constante?;Lei de Boyle;Lei de Charles;Lei de Avogadro;Lei de Dalton;a
+O que afirma a Lei da Conservação da Massa?;A massa pode ser criada ou destruída;A massa é constante em reações químicas;A massa é irrelevante em reações químicas;A massa se transforma em energia;b
+O que é um fenômeno que ocorre quando a luz muda de direção ao passar de um meio para outro?; Reflexão;Refração;Difração;Absorção;b
