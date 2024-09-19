@@ -43,7 +43,7 @@ void embaralhar_perguntas() {
         strcpy(enunciado[j], temp_enunciado);
 
         // Embaralha as alternativas
-        for (int k = 0; k < MAX_PERGUNTAS; k++) {
+        for (int k = 0; k < MAX_ALTERNATIVAS; k++) {
             char temp_alternativa[MAX_TAM];
             strcpy(temp_alternativa, alternativas[i][k]);
             strcpy(alternativas[i][k], alternativas[j][k]);
@@ -64,7 +64,8 @@ void ler_perguntas(const char *nome_arquivo) {
         return;
     }
 
-    while (fgets(enunciado[total_perguntas], MAX_TAM, file) != NULL) {
+    total_perguntas = 0; // Resetar contador
+    while (fgets(enunciado[total_perguntas], MAX_TAM, file) != NULL && total_perguntas < MAX_PERGUNTAS) {
         // Remove a nova linha do final
         enunciado[total_perguntas][strcspn(enunciado[total_perguntas], "\n")] = 0;
 
@@ -80,7 +81,7 @@ void ler_perguntas(const char *nome_arquivo) {
             } else if (index <= MAX_ALTERNATIVAS) {
                 // Alternativas
                 strcpy(alternativas[total_perguntas][index - 1], token);
-            } else {
+            } else if (index == MAX_ALTERNATIVAS + 1) {
                 // Resposta correta
                 resp_correta[total_perguntas] = token[0]; // Pega o primeiro caractere
             }
@@ -91,27 +92,34 @@ void ler_perguntas(const char *nome_arquivo) {
     }
 
     fclose(file);
+
+    // Verifica se perguntas foram lidas
+    if (total_perguntas == 0) {
+        printf("Nenhuma pergunta foi lida do arquivo: %s\n", nome_arquivo);
+    }
 }
 
 void perguntas_facil() {
-    total_perguntas = 0; // Resetar contador
     ler_perguntas("question_easy.txt");
     embaralhar_perguntas();
 }
 
 void perguntas_medio() {
-    total_perguntas = 0; // Resetar contador
     ler_perguntas("question_medium.txt");
     embaralhar_perguntas();
 }
 
 void perguntas_dificil() {
-    total_perguntas = 0; // Resetar contador
     ler_perguntas("question_hard.txt");
     embaralhar_perguntas();
 }
 
 void jogar(int dificuldade) {
+    if (total_perguntas == 0) {
+        printf("Não há perguntas disponíveis para jogar.\n");
+        return;
+    }
+
     char resp;
     for (int i = 0; i < total_perguntas; i++) {
         printf("\nPergunta %d: %s\n", i + 1, enunciado[i]);
