@@ -3,194 +3,140 @@
 #include <stdlib.h>
 #include <locale.h>//para usar setlocale
 
+#define MAX_PERGUNTAS 16
+#define MAX_ALTERNATIVAS 4
+#define MAX_TAM 256
 
-// Criando as variáveis
-char enunciado1[2][256] = {
-    "Qual o maior planeta do sistema solar?",
-    "Quantos planetas tem o sistema solar?"
-};//O enunciado das perguntas
-char alternativas1[2][4][256] = {
-    {"Terra", "Marte", "Jupiter", "Lua"},
-    {"3", "8", "9", "6"}
-};//as alternativas das perguntas em ordem
-char resp_correta1[] = {'c', 'b'};//contem a alternativa correta de cada pergunta facil
-//perguntas de dificuldade media
-char enunciado2[2][256] = {
-    "O que afirma a lei de Coloumb?",
-    "Qual é a unidade de medida de força no sistema internacional?"
-};
-//perguntas dificil
-char enunciado3[2][256] = {
-    "Qual é a principal razão pela qual Plutão não é mais considerado um planeta do Sistema Solar?",
-    "O que afirma o princípio da incerteza de Heisenberg?"
-};
+char enunciado[MAX_PERGUNTAS][MAX_TAM];
+char alternativas[MAX_PERGUNTAS][MAX_ALTERNATIVAS][MAX_TAM];
+char resp_correta[MAX_PERGUNTAS];
+int total_perguntas = 0;
 
-//alternativas de dificuldade media
-char alternativas2[2][4][256] = {
-    {" A força de atrito é diretamente proporcional à força normal", " A força elétrica entre duas cargas é inversamente proporcional ao quadrado da distância entre elas"," A energia cinética é a mesma que a energia potencial"," A velocidade de um objeto é constante se a força resultante for zero"},
-    {"Joule","Newton","Pascal","Watt"}
-};
-char alternativas3[2][4][256] = {
-    {
-        "Sua órbita é inclinada em relação ao plano do Sistema Solar.",
-        "Não é grande o suficiente para limpar sua órbita de outros objetos.",
-        "Ele não possui satélites naturais.",
-        "Sua composição é predominantemente gasosa."
-    },
-    {
-        "Não é possível medir simultaneamente a posição e a velocidade de uma partícula com precisão arbitrária.",
-        "A energia total de um sistema isolado é sempre constante.",
-        "A luz pode se comportar como partícula e como onda.",
-        "A gravidade é a força mais fraca entre as quatro forças fundamentais."
-    }
-};
-char resp_correta3[] = {'b','a'};
-int i, j;
-char resp;
-char resp_correta2[] = {'b','b'};//resposta correta das dificuldades nivel medio
-int dificuldade, point;
-char next;
-//função para perguntas faceis
-char perguntas_facil(){
-    for (i = 0; i < 2; i++) {
-        printf("\nPergunta %d: %s\n", i + 1, enunciado1[i]);//imprimi o enunciado das perguntas
-            for (j = 0; j < 4; j++) {
-                printf(" %c) %s\n", 'a' + j, alternativas1[i][j]);//imprimi as alternativas das perguntas
-            }
-            resp = getchar();
-            #ifdef _WIN32
-                system("ffslush(stdin");//para windows
-            Windows
-            #else
-                __fpurge(stdin);//para linux e macos
-             #endif
-            //verifica a resposta do jogador
-            if(resp == resp_correta1[i]){
-                printf("Certa resposta!");
-                }
-                else{
-                    printf("Resposta errada!");
-            }
-    }
-
-
-};
-//função para perguntas medio
-char perguntas_medio(){
-     for (i = 0; i < 2; i++) {
-        printf("\nPergunta %d: %s\n", i + 1, enunciado2[i]);//imprimi o enunciado das perguntas
-            for (j = 0; j < 4; j++) {
-                printf(" %c) %s\n", 'a' + j, alternativas2[i][j]);//imprimi as alternativas das perguntas
-            }
-            resp = getchar();
-            #ifdef _WIN32
-                system("ffslush(stdin");//para windows
-            Windows
-            #else
-                __fpurge(stdin);//para linux e macos
-             #endif
-            //verifica a resposta do jogador
-            if(resp == resp_correta2[i]){
-                printf("Certa resposta!");
-                }
-                else{
-                    printf("Resposta errada!");
-            }
-    }
-}
-char perguntas_dificil(){
-     for (i = 0; i < 2; i++) {
-        printf("\nPergunta %d: %s\n", i + 1, enunciado3[i]);//imprimi o enunciado das perguntas
-            for (j = 0; j < 4; j++) {
-                printf(" %c) %s\n", 'a' + j, alternativas3[i][j]);//imprimi as alternativas das perguntas
-            }
-            resp = getchar();
-            #ifdef _WIN32
-                system("ffslush(stdin");//para windows
-            Windows
-            #else
-                __fpurge(stdin);//para linux e macos
-             #endif
-            //verifica a resposta do jogador
-            if(resp == resp_correta3[i]){
-                printf("Certa resposta!");
-                }
-                else{
-                    printf("Resposta errada!");
-            }
-    }
-}
-int pontucao(){
-    point = 0;
-    switch(dificuldade){
-      case 1:
-            if(resp == resp_correta1[i]){
-                point++;
-            } break;
-        case 2:
-            if(resp==resp_correta2[i]){
-                point++;
-            }
-        break;
-        case 3:
-            if(resp == resp_correta3[i]){
-                point++;
-            }
-        break;
-    };
-    return point;
-};
-
-void main(){
-    // Configura o locale para permitir acentuação
-    setlocale(LC_ALL, "Portuguese");
-
-    printf("\n-----Bem-vindo ao jogo-----\n");
-    printf("\n-----Pressione enter para continuar -----\n");
-    getchar();
+//função para limpar o buffer para windows e linux
+void limpar_buffer(){
     #ifdef _WIN32
-            system("ffslush(stdin");//para windows
-        Windows
-        #else
-            __fpurge(stdin);//para linux e macos
-    #endif
-    //verifica a resposta do jogador
-    //limpar a tela
-    #ifdef _WIN32
-        system("cls"); //comando para windows
-    Windows
+        fflush(stdin);
     #else
-        system("clear");//comano para Linux e MacOs
-    #endif
-    do{
-        printf("Escolha a dificuldade:");
-        printf("\n1- Fácil\n");
-        printf("\n2- Médio\n");
-        printf("\n3-Dificil\n");
-        scanf("%d",&dificuldade);
         __fpurge(stdin);
+    #endif
+};
+//Para limpar a tela para windows e linux
+void limpar_tela(){
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+};
 
-        switch(dificuldade){
-            case 1: perguntas_facil();
-            break;
-            case 2: perguntas_medio();
-            break;
-            case 3: perguntas_dificil();
-            break;
-            default: printf("Por favor escolha um nível de dificuldade!");
+void ler_perguntas(const char *nome_arquivo) {
+    FILE *file = fopen(nome_arquivo, "r");
+    if (file == NULL) {
+        printf("Erro ao abrir o arquivo: %s\n", nome_arquivo);
+        return;
+    }
+
+    while (fgets(enunciado[total_perguntas], MAX_TAM, file) != NULL) {
+        // Remove a nova linha do final
+        enunciado[total_perguntas][strcspn(enunciado[total_perguntas], "\n")] = 0;
+
+        // Divide a linha em partes usando ';' como delimitador
+        char *token = strtok(enunciado[total_perguntas], ";");
+        int index = 0;
+
+        // Captura a pergunta e as alternativas
+        while (token != NULL) {
+            if (index == 0) {
+                // Primeira parte é o enunciado
+                strcpy(enunciado[total_perguntas], token);
+            } else if (index <= MAX_ALTERNATIVAS) {
+                // Alternativas
+                strcpy(alternativas[total_perguntas][index - 1], token);
+            } else {
+                // Resposta correta
+                resp_correta[total_perguntas] = token[0]; // Pega o primeiro caractere
             }
-            printf("\nParabens, sua pontuação é %d\n", point);
-            getchar();
-             #ifdef _WIN32
-            system("ffslush(stdin");//para windows
-        Windows
-        #else
-            __fpurge(stdin);//para linux e macos
-        #endif
-        //verifica a resposta do jogador
-            printf("\nDeseja continuar?\n");
-            printf("\nS-sim\n");
-            printf("\nN-não\n");
-            scanf("%s",&next);
-    }while (next == 's');
+            token = strtok(NULL, ";");
+            index++;
+        }
+        total_perguntas++;
+    }
+
+    fclose(file);
+}
+
+void perguntas_facil() {
+    total_perguntas = 0; // Resetar contador
+    ler_perguntas("question_easy.txt");
+}
+
+void perguntas_medio() {
+    total_perguntas = 0; // Resetar contador
+    ler_perguntas("question_medium.txt");
+}
+
+void perguntas_dificil() {
+    total_perguntas = 0; // Resetar contador
+    ler_perguntas("question_hard.txt");
+}
+
+void jogar(int dificuldade) {
+    char resp;
+    for (int i = 0; i < 10; i++) {
+        printf("\nPergunta %d: %s\n", i + 1, enunciado[i]);
+        for (int j = 0; j < MAX_ALTERNATIVAS; j++) {
+            printf(" %c) %s\n", 'a' + j, alternativas[i][j]);
+        }
+        printf("Digite sua resposta\n");
+        resp = getchar();
+
+        if (resp == resp_correta[i]) {
+            printf("Certa resposta!\n");
+        } else {
+            printf("Resposta errada! A resposta correta era: %c\n", resp_correta[i]);
+        }
+        getchar();
+        limpar_buffer();
+    }
+}
+
+
+int main() {
+    setlocale(LC_ALL, "Portuguese");
+    int dificuldade;
+
+    do {
+        printf("\n------Bem vindo ao jogo!!!-----\n");
+        printf("\n------Digite ENTER para continuar------\n");
+        getchar();
+        limpar_buffer();
+        limpar_tela();
+        printf("\n----- Escolha a dificuldade -----\n");
+        printf("1 - Fácil\n");
+        printf("2 - Médio\n");
+        printf("3 - Difícil\n");
+        scanf("%d", &dificuldade);
+        getchar();
+        limpar_buffer();
+
+        switch (dificuldade) {
+            case 1:
+                perguntas_facil();
+                jogar(dificuldade);
+                break;
+            case 2:
+                perguntas_medio();
+                jogar(dificuldade);
+                break;
+            case 3:
+                perguntas_dificil();
+                jogar(dificuldade);
+                break;
+            default:
+                printf("Por favor, escolha um nível de dificuldade válido!\n");
+                break;
+        }
+    } while (dificuldade != 0);
+
+    return 0;
 }
