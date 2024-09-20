@@ -1,15 +1,18 @@
-Qual È o n˙mero atÙmico do elemento ur‚nio?;88;92;94;96;b
-Qual È o teorema que relaciona a forÁa elÈtrica, a dist‚ncia e a carga entre duas partÌculas?;Teorema de pitagoras;Lei de Coulomb;Teorema de Gauss;Lei da GravitaÁ„o universal;b
-Qual È a fase da Lua durante um eclipse lunar?;Lua nova;Quarto crescente;Lua cheia;Quarto minguante;c
-Qual dos seguintes È um exemplo de uma reaÁ„o de oxidaÁ„o-reduÁ„o?;NeutralizaÁ„o;DecomposiÁ„o;Combust„o;PrecipitaÁ„o;c
-Qual È o princÌpio que afirma que um corpo mergulhado em um fluido sofre uma forÁa para cima igual ao peso do fluido deslocado?;Principio de Pascal;Principio de Arquimedes;Lei de Newton; Teorema de Bernoulli;b
-Qual È o nome da reaÁ„o que envolve a quebra de uma ligaÁ„o quÌmica pela adiÁ„o de ·gua?;Hidrolise;EsterificaÁ„o;SaponifiÁ„o;PolimeraÁ„o;a
-Qual È a fÛrmula que descreve a relaÁ„o entre a luminosidade de uma estrela, sua temperatura efetiva e seu raio?;Lei de Stefan-Boltzmann;Lei de Hubble;Lei de Planck;Lei de Wien;a
-Qual È a energia necess·ria para remover um elÈtron de um ·tomo no estado gasoso chamada?;Energia de ionizaÁ„o; Energia de ativaÁ„o;Energia de ligaÁ„o;Energia de afinidade eletrÙnica;a
-Qual È o critÈrio de classificaÁ„o de estrelas conhecido como a sequÍncia principal no diagrama de Hertzsprung-Russell?;ClassificaÁ„o de espectros;Massa e temperatura;Luminosidade e tamanho;ComposiÁ„o quimica;b
-Qual È o nome do efeito que descreve o deslocamento das linhas espectrais de um objeto em movimento em relaÁ„o ao observador?;Efeito Doppler;Efeito Compton;Efeito Zeeman;Efeito Raman;a
-Em mec‚nica qu‚ntica, o princÌpio que estabelece que n„o se pode conhecer simultaneamente a posiÁ„o e a quantidade de movimento de uma partÌcula com precis„o arbitr·ria È conhecido como:;PrincÌpio da Incerteza de Heisenberg;PrincÌpio de Exclus„o de Pauli;PrincÌpio da SuperposiÁ„o;PrincÌpio de ConservaÁ„o da Energia;a;
-Qual È a teoria que explica a formaÁ„o de ligaÁıes quÌmicas em termos de orbitais atÙmicos sobrepostos?;Teoria de valÍncia;Teoria do orbital molecular;Teoria do Estado de TransiÁ„o;Teoria de Lewis;a
-Qual È o fenÙmeno que resulta na formaÁ„o de um buraco negro?;Supernova;Nova;An„ branca;Estrela de nÍutrons;a
-Qual È a diferenÁa entre um ·cido forte e um ·cido fraco?;A solubilidade em ·gua; A capacidade de doar prÛtons;O grau de ionizaÁ„o em soluÁ„o aquosa;A temperatura de ebuliÁ„o;c
-Qual È o teorema que descreve a conservaÁ„o da quantidade de movimento em sistemas de partÌculas?;Teorema de Bernoulli;Teorema de Newton;Teorema da ConservaÁ„o da Quantidade de Movimento;Teorema de PoincarÈ;c
+Qual √© o n√∫mero at√¥mico do elemento ur√¢nio?;88;92;94;96;b
+Qual √© o teorema que relaciona a for√ßa el√©trica, a dist√¢ncia e a carga entre duas part√≠culas?;Teorema de pitagoras;Lei de Coulomb;Teorema de Gauss;Lei da Gravita√ß√£o universal;b
+Qual √© a fase da Lua durante um eclipse lunar?;Lua nova;Quarto crescente;Lua cheia;Quarto minguante;c
+Qual dos seguintes √© um exemplo de uma rea√ß√£o de oxida√ß√£o-redu√ß√£o?;Neutraliza√ß√£o;Decomposi√ß√£o;Combust√£o;Precipita√ß√£o;c
+Qual √© o princ√≠pio que afirma que um corpo mergulhado em um fluido sofre uma for√ßa para cima igual ao peso do fluido deslocado?;Principio de Pascal;Principio de Arquimedes;Lei de Newton; Teorema de Bernoulli;b
+Qual √© o nome da rea√ß√£o que envolve a quebra de uma liga√ß√£o qu√≠mica pela adi√ß√£o de √°gua?;Hidrolise;Esterifica√ß√£o;Saponifi√ß√£o;Polimera√ß√£o;a
+Qual √© a f√≥rmula que descreve a rela√ß√£o entre a luminosidade de uma estrela, sua temperatura efetiva e seu raio?;Lei de Stefan-Boltzmann;Lei de Hubble;Lei de Planck;Lei de Wien;a
+Qual √© a energia necess√°ria para remover um el√©tron de um √°tomo no estado gasoso chamada?;Energia de ioniza√ß√£o; Energia de ativa√ß√£o;Energia de liga√ß√£o;Energia de afinidade eletr√¥nica;a
+Qual √© o crit√©rio de classifica√ß√£o de estrelas conhecido como a sequ√™ncia principal no diagrama de Hertzsprung-Russell?;Classifica√ß√£o de espectros;Massa e temperatura;Luminosidade e tamanho;Composi√ß√£o quimica;b
+Qual √© o nome do efeito que descreve o deslocamento das linhas espectrais de um objeto em movimento em rela√ß√£o ao observador?;Efeito Doppler;Efeito Compton;Efeito Zeeman;Efeito Raman;a
+Em mec√¢nica qu√¢ntica, o princ√≠pio que estabelece que n√£o se pode conhecer simultaneamente a posi√ß√£o e a quantidade de movimento de uma part√≠cula com precis√£o arbitr√°ria √© conhecido como:;Princ√≠pio da Incerteza de Heisenberg;Princ√≠pio de Exclus√£o de Pauli;Princ√≠pio da Superposi√ß√£o;Princ√≠pio de Conserva√ß√£o da Energia;a;
+Qual √© a teoria que explica a forma√ß√£o de liga√ß√µes qu√≠micas em termos de orbitais at√¥micos sobrepostos?;Teoria de val√™ncia;Teoria do orbital molecular;Teoria do Estado de Transi√ß√£o;Teoria de Lewis;a
+Qual √© o fen√¥meno que resulta na forma√ß√£o de um buraco negro?;Supernova;Nova;An√£ branca;Estrela de n√™utrons;a
+Qual √© a diferen√ßa entre um √°cido forte e um √°cido fraco?;A solubilidade em √°gua; A capacidade de doar pr√≥tons;O grau de ioniza√ß√£o em solu√ß√£o aquosa;A temperatura de ebuli√ß√£o;c
+Qual √© o teorema que descreve a conserva√ß√£o da quantidade de movimento em sistemas de part√≠culas?;Teorema de Bernoulli;Teorema de Newton;Teorema da Conserva√ß√£o da Quantidade de Movimento;Teorema de Poincar√©;c
+
+
+

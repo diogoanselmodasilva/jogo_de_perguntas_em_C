@@ -13,8 +13,8 @@ char alternativas[MAX_PERGUNTAS][MAX_ALTERNATIVAS][MAX_TAM];
 char resp_correta[MAX_PERGUNTAS];
 int total_perguntas = 0;
 char nome[21];
-char next, resp;;
-int numero_de_perguntas, pontos=0;//jogador escolhe a quantidade de perguntas
+char next, resp;
+int numero_de_perguntas, pontos = 0 ;//jogador escolhe a quantidade de perguntas
 
 // Função para limpar o buffer
 void limpar_buffer() {
@@ -121,7 +121,7 @@ void perguntas_dificil() {
 }
 
 void jogar(int dificuldade) {
-    if (total_perguntas == 0) {
+    if (numero_de_perguntas == 0) {
         printf("Não há perguntas disponíveis para jogar.\n");
         return;
     }
@@ -133,20 +133,40 @@ void jogar(int dificuldade) {
         printf("Digite sua resposta: ");
         resp = getchar();
         limpar_buffer(); // Limpa o buffer após a entrada
+        limpar_tela();//limpa a tela depois de cada pergunta
 
         if (resp == resp_correta[i]) {
             printf("Certa resposta!\n");
+            pontos += 10;//adiciona pontos se a resposta estiver correta
         } else {
             printf("Resposta errada! A resposta correta era: %c\n", resp_correta[i]);
+            pontos -= 2;//penaliza se a resposta estiver errada
         }
     }
 }
-void pontuacao(){
-    if(resp == resp_correta){
-        pontos += 10;
+void atualizarRanking(const char *nome, int pontos){
+    FILE *arquivo = fopen("ranking.txt", "a");
+    if(arquivo != NULL){
+        fprintf(arquivo, "%s %d\n", nome, pontos);
+        fclose(arquivo);
     }
         else{
-            pontos -= 2;
+            printf("ERROR ao abrir o arquivo");
+        }
+}
+void mostrarRanking(){
+    FILE *arquivo = fopen("ranking.txt","r");
+    if(arquivo != NULL){
+        char nome[21];
+        int pontos;
+        printf("Ranking:\n");
+        while (fscanf(arquivo, "%20s %d", nome, &pontos) != EOF){
+            printf("%s: %d\n0", nome, pontos);
+        }
+        fclose(arquivo);
+    }
+        else{
+            printf("ERROR ao abrir o arquivo");
         }
 }
 
@@ -189,12 +209,16 @@ int main() {
                 printf("Por favor, escolha um nível de dificuldade válido!\n");
                 break;
         }
-        printf("\n%s : %d pontos",nome,pontos);
+        printf("\n%s : %d pontos", nome, pontos);
         printf("\ndeseja continuar?\n");
         printf("S-sim\nN-nao\n");
         scanf("%s",&next);
         limpar_tela();
     } while (next == 's' || next == 'S');
+    //atualiza o ranking
+    atualizarRanking(nome,pontos);
+    //mostrar o ranking ao final do jogo
+    mostrarRanking();
 
 
     return 0;

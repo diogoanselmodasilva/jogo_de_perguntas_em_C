@@ -1,16 +1,16 @@
-Qual o maior planeta do sistema solar?;Terra;Marte;Júpiter;Lua;c
+Qual o maior planeta do sistema solar?;Terra;Marte;JÃºpiter;Lua;c
 Quantos planetas tem o sistema solar?;3;8;9;6;b
-Qual é a fórmula química da água?;H2O2;CO2;H2O;O2;c
-Qual é a velocidade da luz no vácuo?;300.000km/h;300.000km/s;150.000km/s;1.000km/h;b
-Qual gás é mais abundante na atmosfera da Terra?;Oxigênio;Hidrogênio;Nitrogênio;Dioxido de carbono;c
-Qual é o planeta mais proximo do sol?;Vênus;Terra;Marte;Mercurio;d
-O que é o átomo?;A menor unidade de uma molecula;Uma particula subatômica;Um composto químico;Um elemento quimico;b
-Qual é a primeira lei de newton?;A energia não pode ser criada nem destruida;Um objeto em repouso permanece em repouso;Para cada ação, há uma reação igual e oposta;A força é igual á massa multiplicada pela aceleração;b
-Qual é a fórmula da energia cinética?;E = mc²;E=1/2mv²;E=mgh;b
-Qual o principal gás responsável pelo efeito estufa;Oxigênio;Dioxido de carbono;Nitrogênio;Hélio;b
-O que é um foton?;Uma particula de eletricidade;Luz;uma particula de materia;um tipo de onda sonora;b
-Qual a temperatura de ebulição da agua em condições normais?;50°c;100°c;150°c;200°c;b
-Qual o elemento representado pelo simbolo 'Na'?;Níquel;Sódio;Nitrônio;Selenônio;b
-O que é a gravidade?;Uma força que atrai objetos para o centro da Terra;Uma força que repele objetos;Um tipo de energia;Um fenomeno fisico que ocorre apenas na lua;a
-Qual é a unidade de medida da temperatura no sistema internacional?;Kelvin;Celsius;Fahrenheit;Joule;a
-Qual é o planeta que possui anéis?;Terra;Vênus;Saturno;Marte;c
+Qual Ã© a fÃ³rmula quÃ­mica da Ã¡gua?;H2O2;CO2;H2O;O2;c
+Qual Ã© a velocidade da luz no vÃ¡cuo?;300.000km/h;300.000km/s;150.000km/s;1.000km/h;b
+Qual gÃ¡s Ã© mais abundante na atmosfera da Terra?;OxigÃªnio;HidrogÃªnio;NitrogÃªnio;Dioxido de carbono;c
+Qual Ã© o planeta mais proximo do sol?;VÃªnus;Terra;Marte;Mercurio;d
+O que Ã© o Ã¡tomo?;A menor unidade de uma molecula;Uma particula subatÃ´mica;Um composto quÃ­mico;Um elemento quimico;b
+Qual Ã© a primeira lei de newton?;A energia nÃ£o pode ser criada nem destruida;Um objeto em repouso permanece em repouso;Para cada aÃ§Ã£o, hÃ¡ uma reaÃ§Ã£o igual e oposta;A forÃ§a Ã© igual Ã¡ massa multiplicada pela aceleraÃ§Ã£o;b
+Qual Ã© a fÃ³rmula da energia cinÃ©tica?;E = mcÂ²;E=1/2mvÂ²;E=mgh;E = mgv;b
+Qual o principal gÃ¡s responsÃ¡vel pelo efeito estufa;OxigÃªnio;Dioxido de carbono;NitrogÃªnio;HÃ©lio;b
+O que Ã© um foton?;Uma particula de eletricidade;Luz;uma particula de materia;um tipo de onda sonora;b
+Qual a temperatura de ebuliÃ§Ã£o da agua em condiÃ§Ãµes normais?;50Â°c;100Â°c;150Â°c;200Â°c;b
+Qual o elemento representado pelo simbolo 'Na'?;NÃ­quel;SÃ³dio;NitrÃ´nio;SelenÃ´nio;b
+O que Ã© a gravidade?;Uma forÃ§a que atrai objetos para o centro da Terra;Uma forÃ§a que repele objetos;Um tipo de energia;Um fenomeno fisico que ocorre apenas na lua;a
+Qual Ã© a unidade de medida da temperatura no sistema internacional?;Kelvin;Celsius;Fahrenheit;Joule;a
+Qual Ã© o planeta que possui anÃ©is?;Terra;VÃªnus;Saturno;Marte;c

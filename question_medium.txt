@@ -1,16 +1,16 @@
-Qual é a fórmula da velocidade média?;v=d/t;v=m/a;v=f/m;v=t/d;a
-Qual é a unidade de medida de força no sistema internacional?;Joule;Newton;Pascal;Watt;b
-O que é um ácido?;Uma substância que doa elétrons;Uma substância que aceita prótons;Uma substância que doa prótons;Uma substância que é sempre sólida;c
-Qual é o principal componente do Sol?;Oxigênio;Hidrogênio;Hélio;Carbono;b
-Qual das opções abaixo é uma forma de energia?;Massa;Calor;Volume;Força;b
-Qual é a lei que relaciona a pressão e o volume de um gás a temperatura constante?;Lei de Boyle;Lei de Charles;Lei de Avogadro;Lei de Dalton;a
-O que afirma a Lei da Conservação da Massa?;A massa pode ser criada ou destruída;A massa é constante em reações químicas;A massa é irrelevante em reações químicas;A massa se transforma em energia;b
-O que é um fenômeno que ocorre quando a luz muda de direção ao passar de um meio para outro?;Reflexão;Refração;Difração;Absorção;b
-Qual dos seguintes elementos é um metal alcalino?;Cloro;Oxigênio;Sódio;Carbono;c
-Qual é a estrela mais próxima da Terra?;Alpha Centauri;Proxima Centauri;Betelgeuse;Sirius;b
-Qual dos seguintes compostos é um ácido?;NaCl;HCl;CH4;NH3;b
-Qual é o satélite natural da Terra?;Fobos;Deimos;Selene;Titã;c
-Qual é o pH de uma solução neutra a 25 °C?;0;7;14;5;b
-Qual é a fórmula da área de um círculo?;A=pr2;A=2pr;A=2pr2;A=pr2;a
-Qual é o principal ácido encontrado no vinagre?;Ácido clorídrico;Ácido acético;Ácido sulfúrico;Ácido cítrico;b
-Qual é a unidade de medida da carga elétrica no Sistema Internacional (SI)?;Joule;Coulomb;Volt;Ampere;b
+Qual Ã© a fÃ³rmula da velocidade mÃ©dia?;v=d/t;v=m/a;v=f/m;v=t/d;a
+Qual Ã© a unidade de medida de forÃ§a no sistema internacional?;Joule;Newton;Pascal;Watt;b
+O que Ã© um Ã¡cido?;Uma substÃ¢ncia que doa elÃ©trons;Uma substÃ¢ncia que aceita prÃ³tons;Uma substÃ¢ncia que doa prÃ³tons;Uma substÃ¢ncia que Ã© sempre sÃ³lida;c
+Qual Ã© o principal componente do Sol?;OxigÃªnio;HidrogÃªnio;HÃ©lio;Carbono;b
+Qual das opÃ§Ãµes abaixo Ã© uma forma de energia?;Massa;Calor;Volume;ForÃ§a;b
+Qual Ã© a lei que relaciona a pressÃ£o e o volume de um gÃ¡s a temperatura constante?;Lei de Boyle;Lei de Charles;Lei de Avogadro;Lei de Dalton;a
+O que afirma a Lei da ConservaÃ§Ã£o da Massa?;A massa pode ser criada ou destruÃ­da;A massa Ã© constante em reaÃ§Ãµes quÃ­micas;A massa Ã© irrelevante em reaÃ§Ãµes quÃ­micas;A massa se transforma em energia;b
+O que Ã© um fenÃ´meno que ocorre quando a luz muda de direÃ§Ã£o ao passar de um meio para outro?;ReflexÃ£o;RefraÃ§Ã£o;DifraÃ§Ã£o;AbsorÃ§Ã£o;b
+Qual dos seguintes elementos Ã© um metal alcalino?;Cloro;OxigÃªnio;SÃ³dio;Carbono;c
+Qual Ã© a estrela mais prÃ³xima da Terra?;Alpha Centauri;Proxima Centauri;Betelgeuse;Sirius;b
+Qual dos seguintes compostos Ã© um Ã¡cido?;NaCl;HCl;CH4;NH3;b
+Qual Ã© o satÃ©lite natural da Terra?;Fobos;Deimos;Selene;TitÃ£;c
+Qual Ã© o pH de uma soluÃ§Ã£o neutra a 25 Â°C?;0;7;14;5;b
+Qual Ã© a fÃ³rmula da Ã¡rea de um cÃ­rculo?;A=Ï€r2;A=2Ï€r;A=2Ï€r2;A=Ï€r2;a
+Qual Ã© o principal Ã¡cido encontrado no vinagre?;Ãcido clorÃ­drico;Ãcido acÃ©tico;Ãcido sulfÃºrico;Ãcido cÃ­trico;b
+Qual Ã© a unidade de medida da carga elÃ©trica no Sistema Internacional (SI)?;Joule;Coulomb;Volt;Ampere;b
