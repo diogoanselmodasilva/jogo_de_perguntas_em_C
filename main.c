@@ -12,6 +12,9 @@ char enunciado[MAX_PERGUNTAS][MAX_TAM];
 char alternativas[MAX_PERGUNTAS][MAX_ALTERNATIVAS][MAX_TAM];
 char resp_correta[MAX_PERGUNTAS];
 int total_perguntas = 0;
+char nome[21];
+char next, resp;;
+int numero_de_perguntas, pontos=0;//jogador escolhe a quantidade de perguntas
 
 // Função para limpar o buffer
 void limpar_buffer() {
@@ -30,7 +33,10 @@ void limpar_tela() {
         system("clear");
     #endif
 }
-
+//para carregar a musica
+void play_music(){
+    system("night_shade.mpeg");
+};
 // Função para embaralhar perguntas
 void embaralhar_perguntas() {
     srand(time(NULL)); // Inicializa a semente aleatória
@@ -119,11 +125,9 @@ void jogar(int dificuldade) {
         printf("Não há perguntas disponíveis para jogar.\n");
         return;
     }
-
-    char resp;
-    for (int i = 0; i < total_perguntas; i++) {
+    for (int i = 0; i < numero_de_perguntas; i++) {
         printf("\nPergunta %d: %s\n", i + 1, enunciado[i]);
-        for (int j = 0; j < MAX_ALTERNATIVAS; j++) {
+        for (int j = 0; j < 4; j++) {
             printf(" %c) %s\n", 'a' + j, alternativas[i][j]);
         }
         printf("Digite sua resposta: ");
@@ -137,10 +141,19 @@ void jogar(int dificuldade) {
         }
     }
 }
+void pontuacao(){
+    if(resp == resp_correta){
+        pontos += 10;
+    }
+        else{
+            pontos -= 2;
+        }
+}
 
 int main() {
     setlocale(LC_ALL, "Portuguese");
     int dificuldade;
+    play_music();
 
     do {
         printf("\n------Bem-vindo ao jogo!!!-----\n");
@@ -148,6 +161,10 @@ int main() {
         getchar();
         limpar_buffer();
         limpar_tela();
+        printf("Digite seu nome:\n(ate 20 caracteres)\n");
+        scanf("%s",&nome);
+        printf("Escolha o número de perguntas:\n(Um número entre 1 e 16)\n");
+        scanf("%d",&numero_de_perguntas);
         printf("\n----- Escolha a dificuldade -----\n");
         printf("1 - Fácil\n");
         printf("2 - Médio\n");
@@ -172,7 +189,13 @@ int main() {
                 printf("Por favor, escolha um nível de dificuldade válido!\n");
                 break;
         }
-    } while (dificuldade != 0);
+        printf("\n%s : %d pontos",nome,pontos);
+        printf("\ndeseja continuar?\n");
+        printf("S-sim\nN-nao\n");
+        scanf("%s",&next);
+        limpar_tela();
+    } while (next == 's' || next == 'S');
+
 
     return 0;
 }
