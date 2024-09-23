@@ -66,5 +66,19 @@ void play_music(const char *caminho_musica) {
         printf("Erro ao carregar música: %s\n", Mix_GetError());
         return;
     }
+    Mix_VolumeMusic(20); // control volum
     Mix_PlayMusic(musica, -1); // -1 para tocar em loop
 }
+//musica caso o jogador acerte ou erre uma pergunta
+void right_music(const char *caminho_musica){
+    Mix_Music *musica = Mix_LoadMUS(caminho_musica);
+    if (!musica) {
+        printf("Erro ao carregar música: %s\n", Mix_GetError());
+        return;
+    }
+    Mix_VolumeMusic(30);
+
+    Mix_PlayMusic(musica, 0); // Toca a música uma vez
+    Mix_FreeMusic(musica); // Libera a música após tocar
+}
+

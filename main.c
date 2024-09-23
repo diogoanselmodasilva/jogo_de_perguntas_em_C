@@ -136,10 +136,33 @@ void jogar(int dificuldade) {
 
         if (resp == resp_correta[i]) {
             printf("Certa resposta!\n");
-            pontos += 10;//adiciona pontos se a resposta estiver correta
+            switch(dificuldade){
+                case 1:
+                pontos += 5;//recebe 5 pontos por pergunta facil
+                break;
+                case 2:
+                pontos += 7;//7 pontos por pergunta media
+                break;
+                case 3:
+                pontos += 13;//13 pontos por pergunta dificil
+                break;
+            }
+            right_music("moutain_trails.wav,0,5");
+
         } else {
             printf("Resposta errada! A resposta correta era: %c\n", resp_correta[i]);
-            pontos -= 2;//penaliza se a resposta estiver errada
+            switch(dificuldade){
+                case 1:
+                pontos -= 3;//penaliza o jogador
+                break;
+                case 2:
+                pontos -= 5;
+                break;
+                case 3:
+                pontos -= 11;
+                break;
+            }
+            right_music("a_night_of_dizzy_spells.wav", 0,5);
         }
     }
 }
@@ -215,11 +238,12 @@ void mostrarRanking() {
 int main() {
     setlocale(LC_ALL, "Portuguese");
     int dificuldade;
-    void tela_inicial();
-    void loop_jogo();
+    iniciar_mixer();
     play_music("night_shade.wav");
 
     do {
+        void tela_inicial();
+        void loop_jogo();
         printf("\n------Bem-vindo ao jogo!!!-----\n");
         printf("\n------Digite ENTER para continuar------\n");
         getchar();
