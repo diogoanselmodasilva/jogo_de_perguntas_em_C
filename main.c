@@ -3,10 +3,13 @@
 #include <stdlib.h>
 #include <locale.h>
 #include <time.h>
+#include "estilizacao.h"
 
 #define MAX_PERGUNTAS 16
 #define MAX_ALTERNATIVAS 4
 #define MAX_TAM 512
+#define MAX_nome 20
+#define MAX_jogadores 100
 
 char enunciado[MAX_PERGUNTAS][MAX_TAM];
 char alternativas[MAX_PERGUNTAS][MAX_ALTERNATIVAS][MAX_TAM];
@@ -14,7 +17,7 @@ char resp_correta[MAX_PERGUNTAS];
 int total_perguntas = 0;
 char nome[21];
 char next, resp;
-int numero_de_perguntas, pontos = 0 ;//jogador escolhe a quantidade de perguntas
+int numero_de_perguntas = 1, pontos = 0 ;//jogador escolhe a quantidade de perguntas
 
 // Função para limpar o buffer
 void limpar_buffer() {
@@ -144,16 +147,55 @@ void jogar(int dificuldade) {
         }
     }
 }
-void atualizarRanking(const char *nome, int pontos){
-    FILE *arquivo = fopen("ranking.txt", "a");
-    if(arquivo != NULL){
-        fprintf(arquivo, "%s %d\n", nome, pontos);
-        fclose(arquivo);
-    }
-        else{
-            printf("ERROR ao abrir o arquivo");
+//estrtura para armazenar o nome e pontuação de cada jogador
+typedef struct {
+    char nome[MAX_nome];
+    int pontos;
+} Jogador;
+//Atualiza o ranking em ordem decrescente
+void atualizarRanking(const char *nome, int pontos) {
+    Jogador jogadores[MAX_jogadores];
+    int numJogadores = 0;
+
+    // Lê o arquivo existente
+    FILE *arquivo = fopen("ranking.txt", "r");
+    if (arquivo != NULL) {
+        while (fscanf(arquivo, "%s %d", jogadores[numJogadores].nome, &jogadores[numJogadores].pontos) == 2) {
+            numJogadores++;
+            if (numJogadores >= MAX_jogadores) {
+                break; // Evita overflow
+            }
         }
-}
+        fclose(arquivo);
+    } else {
+        printf("ERROR ao abrir o arquivo\n");
+    }
+
+    // Adiciona o novo jogador
+    strncpy(jogadores[numJogadores].nome, nome, MAX_nome);
+    jogadores[numJogadores].pontos = pontos;
+    numJogadores++;
+
+    // Classifica os jogadores em ordem decrescente
+    for (int i = 0; i < numJogadores - 1; i++) {
+        for (int j = 0; j < numJogadores - i - 1; j++) {
+            if (jogadores[j].pontos < jogadores[j + 1].pontos) {
+                // Troca os jogadores
+                Jogador temp = jogadores[j];
+                jogadores[j] = jogadores[j + 1];
+                jogadores[j + 1] = temp;
+            }
+        }
+        // Escreve de volta no arquivo
+    arquivo = fopen("ranking.txt", "w");
+    if (arquivo != NULL) {
+        for (int i = 0; i < numJogadores; i++) {
+            fprintf(arquivo, "%s %d\n", jogadores[i].nome, jogadores[i].pontos);
+        }
+        fclose(arquivo);
+        }
+    }
+
 void mostrarRanking(){
     FILE *arquivo = fopen("ranking.txt","r");
     if(arquivo != NULL){
@@ -173,6 +215,8 @@ void mostrarRanking(){
 int main() {
     setlocale(LC_ALL, "Portuguese");
     int dificuldade;
+    void tela_inicial();
+    void loop_jogo();
     play_music();
 
     do {
@@ -214,12 +258,11 @@ int main() {
         printf("S-sim\nN-nao\n");
         scanf("%s",&next);
         limpar_tela();
+        pontos = 0;
     } while (next == 's' || next == 'S');
     //atualiza o ranking
     atualizarRanking(nome,pontos);
     //mostrar o ranking ao final do jogo
     mostrarRanking();
-
-
     return 0;
 }
