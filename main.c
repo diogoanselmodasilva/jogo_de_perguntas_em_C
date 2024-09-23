@@ -36,10 +36,6 @@ void limpar_tela() {
         system("clear");
     #endif
 }
-//para carregar a musica
-void play_music(){
-    system("night_shade.mpeg");
-};
 // Função para embaralhar perguntas
 void embaralhar_perguntas() {
     srand(time(NULL)); // Inicializa a semente aleatória
@@ -172,7 +168,8 @@ void atualizarRanking(const char *nome, int pontos) {
     }
 
     // Adiciona o novo jogador
-    strncpy(jogadores[numJogadores].nome, nome, MAX_nome);
+    strncpy(jogadores[numJogadores].nome, nome, MAX_nome - 1);
+    jogadores[numJogadores].nome[MAX_nome - 1] = '\0'; // Garante que a string esteja terminada
     jogadores[numJogadores].pontos = pontos;
     numJogadores++;
 
@@ -186,30 +183,33 @@ void atualizarRanking(const char *nome, int pontos) {
                 jogadores[j + 1] = temp;
             }
         }
-        // Escreve de volta no arquivo
+    }
+
+    // Escreve de volta no arquivo
     arquivo = fopen("ranking.txt", "w");
     if (arquivo != NULL) {
         for (int i = 0; i < numJogadores; i++) {
             fprintf(arquivo, "%s %d\n", jogadores[i].nome, jogadores[i].pontos);
         }
         fclose(arquivo);
-        }
+    } else {
+        printf("ERROR ao abrir o arquivo\n");
     }
+}
 
-void mostrarRanking(){
-    FILE *arquivo = fopen("ranking.txt","r");
-    if(arquivo != NULL){
-        char nome[21];
+void mostrarRanking() {
+    FILE *arquivo = fopen("ranking.txt", "r");
+    if (arquivo != NULL) {
+        char nome[MAX_nome];
         int pontos;
         printf("Ranking:\n");
-        while (fscanf(arquivo, "%20s %d", nome, &pontos) != EOF){
-            printf("%s: %d\n0", nome, pontos);
+        while (fscanf(arquivo, "%20s %d", nome, &pontos) != EOF) {
+            printf("%s: %d\n", nome, pontos);
         }
         fclose(arquivo);
+    } else {
+        printf("ERROR ao abrir o arquivo\n");
     }
-        else{
-            printf("ERROR ao abrir o arquivo");
-        }
 }
 
 int main() {
@@ -217,7 +217,7 @@ int main() {
     int dificuldade;
     void tela_inicial();
     void loop_jogo();
-    play_music();
+    play_music("night_shade.wav");
 
     do {
         printf("\n------Bem-vindo ao jogo!!!-----\n");
@@ -258,11 +258,12 @@ int main() {
         printf("S-sim\nN-nao\n");
         scanf("%s",&next);
         limpar_tela();
+        //atualiza o ranking
+        atualizarRanking(nome,pontos);
+        //mostrar o ranking ao final do jogo
+        mostrarRanking();
         pontos = 0;
     } while (next == 's' || next == 'S');
-    //atualiza o ranking
-    atualizarRanking(nome,pontos);
-    //mostrar o ranking ao final do jogo
-    mostrarRanking();
+
     return 0;
 }

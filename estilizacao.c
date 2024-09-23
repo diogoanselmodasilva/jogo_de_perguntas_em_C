@@ -1,12 +1,14 @@
 #include "estilizacao.h"
 #include <stdio.h>
 #include <stdbool.h>
+#include <SDL2/SDL_mixer.h>
+
 
 void tela_inicial() {
     SDL_Window *janela = NULL;
     SDL_Renderer *renderizador = NULL;
     SDL_Event eventos;
-    int executando = 1;
+    bool executando = true;
 
     // Inicializa a SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -49,4 +51,20 @@ void tela_inicial() {
     SDL_DestroyRenderer(renderizador);
     SDL_DestroyWindow(janela);
     SDL_Quit();
+}
+// para tocar musica de fundo no jogo
+//inicializar o mixer
+void iniciar_mixer(){
+    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
+    printf("Erro ao inicializar o mixer: %s\n", Mix_GetError());
+    return;
+    }
+}
+void play_music(const char *caminho_musica) {
+    Mix_Music *musica = Mix_LoadMUS(caminho_musica);
+    if (!musica) {
+        printf("Erro ao carregar música: %s\n", Mix_GetError());
+        return;
+    }
+    Mix_PlayMusic(musica, -1); // -1 para tocar em loop
 }
