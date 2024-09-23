@@ -1,4 +1,4 @@
-Qual é o número atômico do elemento urânio?;88;92;94;96;b
+Qual é o número atômico do elemento urânio?;90;92;94;96;b
 Qual é o teorema que relaciona a força elétrica, a distância e a carga entre duas partículas?;Teorema de pitagoras;Lei de Coulomb;Teorema de Gauss;Lei da Gravitação universal;b
 Qual é a fase da Lua durante um eclipse lunar?;Lua nova;Quarto crescente;Lua cheia;Quarto minguante;c
 Qual dos seguintes é um exemplo de uma reação de oxidação-redução?;Neutralização;Decomposição;Combustão;Precipitação;c
@@ -6,7 +6,7 @@ Qual é o princípio que afirma que um corpo mergulhado em um fluido sofre uma f
 Qual é o nome da reação que envolve a quebra de uma ligação química pela adição de água?;Hidrolise;Esterificação;Saponifição;Polimeração;a
 Qual é a fórmula que descreve a relação entre a luminosidade de uma estrela, sua temperatura efetiva e seu raio?;Lei de Stefan-Boltzmann;Lei de Hubble;Lei de Planck;Lei de Wien;a
 Qual é a energia necessária para remover um elétron de um átomo no estado gasoso chamada?;Energia de ionização; Energia de ativação;Energia de ligação;Energia de afinidade eletrônica;a
-Qual é o critério de classificação de estrelas conhecido como a sequência principal no diagrama de Hertzsprung-Russell?;Classificação de espectros;Massa e temperatura;Luminosidade e tamanho;Composição quimica;b
+Qual é o critério de classificação de estrelas conhecido como a sequência principal no diagrama de Hertzsprung-Russell?;Classificação de espectros;Massa e tamanho;Luminosidade e temperatura;Composição quimica;c
 Qual é o nome do efeito que descreve o deslocamento das linhas espectrais de um objeto em movimento em relação ao observador?;Efeito Doppler;Efeito Compton;Efeito Zeeman;Efeito Raman;a
 Em mecânica quântica, o princípio que estabelece que não se pode conhecer simultaneamente a posição e a quantidade de movimento de uma partícula com precisão arbitrária é conhecido como:;Princípio da Incerteza de Heisenberg;Princípio de Exclusão de Pauli;Princípio da Superposição;Princípio de Conservação da Energia;a;
 Qual é a teoria que explica a formação de ligações químicas em termos de orbitais atômicos sobrepostos?;Teoria de valência;Teoria do orbital molecular;Teoria do Estado de Transição;Teoria de Lewis;a
