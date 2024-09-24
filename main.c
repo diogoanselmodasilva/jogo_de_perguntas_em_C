@@ -4,6 +4,7 @@
 #include <locale.h>
 #include <time.h>
 #include "estilizacao.h"
+#include <SDL2/SDL_mixer.h>
 
 #define MAX_PERGUNTAS 16
 #define MAX_ALTERNATIVAS 4
@@ -21,11 +22,9 @@ int numero_de_perguntas = 1, pontos = 0 ;//jogador escolhe a quantidade de pergu
 
 // Função para limpar o buffer
 void limpar_buffer() {
-    #ifdef _WIN32
-        fflush(stdin);
-    #else
-        __fpurge(stdin);
-    #endif
+    int c;
+    while((c = getchar() != '\n' && c != EOF)){}
+    //limpa o buffer para ubuntu e sistema UX
 }
 
 // Função para limpar a tela
@@ -147,7 +146,7 @@ void jogar(int dificuldade) {
                 pontos += 13;//13 pontos por pergunta dificil
                 break;
             }
-            right_music("moutain_trails.wav,0,5");
+            right_music("mountain_trails.wav,1,5");
 
         } else {
             printf("Resposta errada! A resposta correta era: %c\n", resp_correta[i]);
@@ -162,7 +161,7 @@ void jogar(int dificuldade) {
                 pontos -= 11;
                 break;
             }
-            right_music("a_night_of_dizzy_spells.wav", 0,5);
+            right_music("a_night_of_dizzy_spells.wav", 1,5);
         }
     }
 }
@@ -182,7 +181,7 @@ void atualizarRanking(const char *nome, int pontos) {
         while (fscanf(arquivo, "%s %d", jogadores[numJogadores].nome, &jogadores[numJogadores].pontos) == 2) {
             numJogadores++;
             if (numJogadores >= MAX_jogadores) {
-                break; // Evita overflow
+                break;
             }
         }
         fclose(arquivo);
@@ -240,17 +239,17 @@ int main() {
     int dificuldade;
     iniciar_mixer();
     play_music("night_shade.wav");
+    void tela_inicial();
+    void loop_jogo();
 
     do {
-        void tela_inicial();
-        void loop_jogo();
         printf("\n------Bem-vindo ao jogo!!!-----\n");
         printf("\n------Digite ENTER para continuar------\n");
         getchar();
         limpar_buffer();
         limpar_tela();
         printf("Digite seu nome:\n(ate 20 caracteres)\n");
-        scanf("%s",&nome);
+        scanf("%s",nome);
         printf("Escolha o número de perguntas:\n(Um número entre 1 e 16)\n");
         scanf("%d",&numero_de_perguntas);
         printf("\n----- Escolha a dificuldade -----\n");
