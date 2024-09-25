@@ -3,8 +3,8 @@
 #include <stdlib.h>
 #include <locale.h>
 #include <time.h>
-#include "estilizacao.h"
-#include <SDL2/SDL_mixer.h>
+//#include "estilizacao.h"
+//#include <SDL2/SDL_mixer.h>
 
 #define MAX_PERGUNTAS 16
 #define MAX_ALTERNATIVAS 4
@@ -146,7 +146,6 @@ void jogar(int dificuldade) {
                 pontos += 13;//13 pontos por pergunta dificil
                 break;
             }
-            right_music("mountain_trails.wav,1,5");
 
         } else {
             printf("Resposta errada! A resposta correta era: %c\n", resp_correta[i]);
@@ -161,7 +160,6 @@ void jogar(int dificuldade) {
                 pontos -= 11;
                 break;
             }
-            right_music("a_night_of_dizzy_spells.wav", 1,5);
         }
     }
 }
@@ -180,7 +178,7 @@ void atualizarRanking(const char *nome, int pontos) {
     if (arquivo != NULL) {
         while (fscanf(arquivo, "%s %d", jogadores[numJogadores].nome, &jogadores[numJogadores].pontos) == 2) {
             numJogadores++;
-            if (numJogadores >= MAX_jogadores) {
+            if (numJogadores >= 10) {
                 break;
             }
         }
@@ -237,8 +235,7 @@ void mostrarRanking() {
 int main() {
     setlocale(LC_ALL, "Portuguese");
     int dificuldade;
-    iniciar_mixer();
-    play_music("night_shade.wav");
+    system("night_shade.mpeg");
     void tela_inicial();
     void loop_jogo();
 
