@@ -16,7 +16,7 @@ char resp_correta[MAX_PERGUNTAS];
 int total_perguntas = 1;//perguntas deve começar ao menos em 1
 char nome[21];
 char next, resp;
-int numero_de_perguntas = 1, pontos = 1 , posicao, modo = 1;
+int numero_de_perguntas = 1, pontos = 1 , posicao=1, modo = 1;
 //jogador escolhe a quantidade de perguntas, pontuacao e posicao do jogadoor
 
 // Função para limpar o buffer
@@ -247,7 +247,7 @@ void atualizarRanking(const char *nome, int pontos) {
         printf("ERROR ao abrir o arquivo\n");
     }
 }
-
+//mostra o ranking dos jogadores
 void mostrarRanking() {
     FILE *arquivo = fopen("ranking.txt", "r");
     if (arquivo != NULL) {
@@ -255,7 +255,7 @@ void mostrarRanking() {
         int posicao;
         int pontos;
         printf("Ranking:\n");
-        while (fscanf(arquivo, "%%d %s %d", &posicao, nome, &pontos) != EOF) {
+        while (fscanf(arquivo, "%d %s %d", &posicao, nome, &pontos) != EOF) {
             printf("%d- %s: %d pontos\n", posicao, nome, pontos);
         }
         fclose(arquivo);
@@ -267,8 +267,8 @@ void mostrarRanking() {
 int main() {
     setlocale(LC_ALL, "Portuguese");
     int dificuldade;
-    system("night_shade.mpeg");
-
+    system("night_shade.mpeg");//abre a musica de fundo
+    //colocar o jogo em loop
     do {
         printf("\n------Bem-vindo ao jogo!!!-----\n");
         printf("\n------Digite ENTER para continuar------\n");
@@ -310,7 +310,7 @@ int main() {
             printf("\n%s : %d pontos", nome, pontos);
             printf("\ndeseja continuar?\n");
             printf("S-sim\nN-nao\n");
-            scanf("%c",&next);
+            scanf(" %c",&next);
             limpar_tela();
             //atualiza o ranking
             atualizarRanking(nome,pontos);
@@ -318,7 +318,7 @@ int main() {
             mostrarRanking();
             pontos = 0;
         }
-        if(modo == 2){
+        else if(modo == 2){
             Jogador jogadores[2]; // 2 jogadores
             printf("Digite o nome do jogador 1: ");
             scanf("%s", jogadores[0].nome);
@@ -361,23 +361,23 @@ int main() {
             }
 
             // Mostrar a pontuação dos jogadores
-            printf("%s : %d pontos\n", jogadores[0].nome, jogadores[0].pontos);
+            printf("\n%s : %d pontos\n", jogadores[0].nome, jogadores[0].pontos);
             printf("%s : %d pontos\n", jogadores[1].nome, jogadores[1].pontos);
 
             // Outra rodada ou não
             printf("\ndeseja continuar?\n");
             printf("S-sim\nN-nao\n");
-            scanf(" %c", &next); // Note o espaço antes de %c para evitar problemas com o buffer
+            scanf(" %c", &next);
+            limpar_buffer();
             limpar_tela();
 
             // Atualiza o ranking
             atualizarRanking(jogadores[0].nome, jogadores[0].pontos);
             atualizarRanking(jogadores[1].nome, jogadores[1].pontos);
-
+            limpar_tela();
             // Mostrar o ranking ao final do jogo
             mostrarRanking();
             pontos = 0; // Reseta os pontos para a próxima rodada
-
         }
     } while (next == 's' || next == 'S');
     return 0;
